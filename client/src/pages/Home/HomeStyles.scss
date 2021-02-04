@@ -2,7 +2,64 @@
   header {
     display: flex;
     justify-content: space-between;
-    margin-top: 10rem;
+    margin-top: 1rem;
     font-family: $font-family-secondary;
+
+    & h2 {
+      @include header-medium;
+    }
   }
+
+  &__triple-dots {
+    height: 4rem;
+    width: 4rem;
+    fill: $color-secondary;
+  }
+
+  &__search-icon {
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &__calendar {
+    fill: $color-secondary;
+    height: 4rem;
+    width: 4rem;
+    box-shadow: $drop-shadow-small;
+  }
+
+  &__img {
+    margin: 5rem 0;
+  }
+  &__btn {
+    position: absolute;
+    bottom: 8rem;
+    right: 3rem;
+  }
+}
+
+.search-section {
+  margin-top: 4rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#searchInput {
+  background-color: $color-grey-light;
+  outline: none;
+  border: none;
+  width: 28rem;
+  height: 5rem;
+  border-radius: 2rem;
+}
+
+.header-medium {
+  @include header-medium;
+  font-weight: 700;
+  width: 80%;
 }

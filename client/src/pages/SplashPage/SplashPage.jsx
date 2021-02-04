@@ -1,6 +1,8 @@
 import React from "react";
 import sprite from "../../svg-icons/sprite.svg";
 
+import { Link } from "react-router-dom";
+
 import "../../sass/style.scss";
 
 const Splash = () => {
@@ -19,7 +21,9 @@ const Splash = () => {
         save it. View gratitude statements from a previous day through the
         calendar.
       </p>
-      <button className="btn splash-page__btn">&rarr; Let's Start</button>
+      <Link to="/home">
+        <button className="btn splash-page__btn">&rarr; Let's Start</button>
+      </Link>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import sprite from "../svg-icons/sprite.svg";
+import sprite from "../../svg-icons/sprite.svg";
+import { Link } from "react-router-dom";
 
 import "../../sass/style.scss";
 
@@ -8,8 +9,8 @@ class Home extends Component {
     return (
       <div className="home-page">
         <header>
-          <h2 className="heading-secondary">Gratitude Journal</h2>
-          <svg className="triple-dots">
+          <h2 className="header-medium">Gratitude Journal</h2>
+          <svg className="home-page__triple-dots">
             <use href={sprite + "#dots-horizontal-triple"}></use>
           </svg>
         </header>
@@ -18,15 +19,17 @@ class Home extends Component {
             <use href={sprite + "#search"}></use>
           </svg>
           <input type="text" name="searchInput" id="searchInput" />
+          <svg className="home-page__calendar">
+            <use href={sprite + "#calendar-alt-fill"}></use>
+          </svg>
         </div>
-        <svg className="home-page__calendar">
-          <use href={sprite + "#calendar-alt-fill"}></use>
-        </svg>
-        <h2 className="heading-secondary">What are you grateful for?</h2>
-        <svg className="home-page__img">
+        <svg className="home-page__img" viewBox="0 0 100 100">
           <use href={sprite + "#Left hander-cuate"}></use>
         </svg>
-        <button className="btn">&plus; Create</button>
+        <h2 className="header-medium">What are you grateful for?</h2>
+        <Link to="/create">
+          <button className="home-page__btn btn">&#43; Create</button>
+        </Link>
       </div>
     );
   }

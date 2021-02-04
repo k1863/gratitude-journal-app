@@ -1,7 +1,7 @@
 .splash-page {
   .header-primary {
     @include header-primary;
-    margin-top: 5rem;
+    margin-top: 3.5rem;
   }
 
   &__img {
@@ -10,6 +10,7 @@
 
   .header-medium {
     @include header-medium;
+    margin-top: 5rem;
   }
 
   .paragraph {
@@ -18,7 +19,7 @@
 
   &__btn {
     position: absolute;
-    bottom: 5rem;
+    bottom: 8rem;
     right: 3rem;
   }
 }

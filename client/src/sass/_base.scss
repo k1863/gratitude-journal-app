@@ -34,6 +34,7 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 3rem 2rem;
   font-weight: 400;
+  background-color: #fff;
 
   @include respond(tab-land) {
     padding: 5rem 10rem;

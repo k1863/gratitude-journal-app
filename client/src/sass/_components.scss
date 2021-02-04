@@ -1,6 +1,6 @@
 .btn {
-  width: 16rem;
-  height: 5rem;
+  width: 18rem;
+  height: 6rem;
   font-size: 1.6rem;
   background-color: $color-secondary;
   color: #fff;
@@ -10,11 +10,12 @@
   letter-spacing: 1px;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: $drop-shadow-big;
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
   border: none;
+  font-family: $font-family-secondary;
 }
 
 .custom-btn:hover {

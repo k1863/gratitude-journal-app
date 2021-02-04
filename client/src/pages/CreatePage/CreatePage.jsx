@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import sprite from "../svg-icons/sprite.svg";
+import sprite from "../../svg-icons/sprite.svg";
 
 import "../../sass/style.scss";
 
