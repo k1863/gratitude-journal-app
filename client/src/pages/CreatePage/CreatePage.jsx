@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import sprite from "../svg-icons/sprite.svg";
 
+import "../../sass/style.scss";
+
 class Create extends Component {
   render() {
     return (

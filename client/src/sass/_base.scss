@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //defines what 1rem is
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //1rem = 9/16
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; //1rem = 8/16
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12/16
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 3rem 2rem;
+  font-weight: 400;
+
+  @include respond(tab-land) {
+    padding: 5rem 10rem;
+  }
+
+  @include respond(tab-1024) {
+    padding: 4rem 8rem;
+  }
+  @include respond(tab-port) {
+    padding: 3rem 6rem;
+  }
+
+  @include respond(phone) {
+    padding: 3rem 3rem;
+  }
+}
+
+.app {
+  position: relative;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

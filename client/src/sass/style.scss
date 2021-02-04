@@ -1,5 +1,10 @@
-@import "components";
-@import "mixins";
 @import "variables";
+@import "mixins";
+@import "components";
 @import "base";
 @import "typography.scss";
+
+@import "../pages/CreatePage/CreatePageStyles.scss";
+@import "../pages/Home/HomeStyles.scss";
+@import "../pages/SplashPage/SplashPageStyles.scss";
+@import "../components/button/button.scss";

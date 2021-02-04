@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import sprite from "../svg-icons/sprite.svg";
 
+import "../../sass/style.scss";
+
 class Home extends Component {
   render() {
     return (
@@ -12,12 +14,12 @@ class Home extends Component {
           </svg>
         </header>
         <div className="search-section">
-          <svg className="calendar ">
+          <svg className="home-page__search-icon">
             <use href={sprite + "#search"}></use>
           </svg>
           <input type="text" name="searchInput" id="searchInput" />
         </div>
-        <svg className="calendar">
+        <svg className="home-page__calendar">
           <use href={sprite + "#calendar-alt-fill"}></use>
         </svg>
         <h2 className="heading-secondary">What are you grateful for?</h2>

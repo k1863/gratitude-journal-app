@@ -1,0 +1,24 @@
+.splash-page {
+  .header-primary {
+    @include header-primary;
+    margin-top: 5rem;
+  }
+
+  &__img {
+    margin-top: -5rem;
+  }
+
+  .header-medium {
+    @include header-medium;
+  }
+
+  .paragraph {
+    @include paragraph;
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 5rem;
+    right: 3rem;
+  }
+}
