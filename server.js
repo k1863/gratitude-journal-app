@@ -8,7 +8,7 @@ const URI = require("./config/config");
 const PORT = process.env.PORT || 5000;
 
 //import items route
-// const itemsRoute = require("./routes/itemRoute");
+const phraseRoute = require("./routes/phraseRoute");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -34,10 +34,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", (req, res) => {
-  res.send("Welcome home");
-});
-// app.use("api/items", itemsRoute);
+app.use("/phrases", phraseRoute);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}.`);

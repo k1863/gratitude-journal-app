@@ -8,14 +8,24 @@ import "../../sass/style.scss";
 class CreatePage extends Component {
   state = {
     phrase: "",
-    time: "",
   };
 
   onSubmit = (data) => {
     this.setState({
       phrase: data.phrase,
-      time: data.time,
     });
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        phrase: this.state.phrase,
+      }),
+    };
+    fetch("/phrases", requestOptions)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   };
 
   render() {

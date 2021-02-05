@@ -1,11 +1,29 @@
 import React, { Component } from "react";
 import sprite from "../../svg-icons/sprite.svg";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 import "../../sass/style.scss";
 
 class Home extends Component {
+  state = {
+    phrase: [],
+  };
+
+  componentDidMount() {
+    axios
+      .get("/phrases")
+      .then((res) => {
+        this.setState({ phrase: res.data });
+      })
+      .catch((err) => {
+        // what now?
+        console.log(err);
+      });
+  }
   render() {
+    console.log(this.state);
+    // const gratitudePhrase =
     return (
       <div className="home-page">
         <header>
@@ -26,7 +44,16 @@ class Home extends Component {
         <svg className="home-page__img" viewBox="0 0 100 100">
           <use href={sprite + "#Left hander-cuate"}></use>
         </svg>
-        <h2 className="header-medium">What are you grateful for?</h2>
+        {!this.state ? (
+          <h2 h2 className="header-medium">
+            What are you grateful for?
+          </h2>
+        ) : (
+          <h2 h2 className="header-medium">
+            What are you grateful for?
+          </h2>
+        )}
+
         <Link to="/create">
           <button className="home-page__btn btn">&#43; Create</button>
         </Link>

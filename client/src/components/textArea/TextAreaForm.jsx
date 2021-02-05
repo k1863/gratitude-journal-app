@@ -1,13 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import "../../sass/style.scss";
 
 export default function TextAreaForm({ onSubmit }) {
+  let history = useHistory();
   const { register, handleSubmit } = useForm();
 
   const submitHandler = handleSubmit((data) => {
     console.log(data);
     onSubmit(data);
+    history.push("/home");
   });
 
   return (
