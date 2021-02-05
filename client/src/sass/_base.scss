@@ -35,21 +35,6 @@ body {
   margin: 3rem 2rem;
   font-weight: 400;
   background-color: #fff;
-
-  @include respond(tab-land) {
-    padding: 5rem 10rem;
-  }
-
-  @include respond(tab-1024) {
-    padding: 4rem 8rem;
-  }
-  @include respond(tab-port) {
-    padding: 3rem 6rem;
-  }
-
-  @include respond(phone) {
-    padding: 3rem 3rem;
-  }
 }
 
 .app {

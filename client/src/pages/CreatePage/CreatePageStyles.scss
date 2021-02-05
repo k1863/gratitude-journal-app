@@ -1,0 +1,36 @@
+.create-page {
+  position: relative;
+  overflow: hidden;
+  &__phrase {
+    font-size: 1.6rem;
+    color: $color-grey-dark;
+
+    & p {
+      line-height: 1.5;
+    }
+  }
+  &__img-box {
+    margin-bottom: 4rem;
+  }
+  &__img {
+    margin-right: -14rem;
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 0rem;
+    right: 3rem;
+  }
+}
+.header-medium {
+  @include header-medium;
+  margin-top: 1rem;
+  font-family: $font-family-secondary;
+}
+
+.paragraph-secondary {
+  color: $color-grey;
+  font-size: 1.4rem;
+  margin-top: -1rem;
+  margin-bottom: 5rem;
+}
