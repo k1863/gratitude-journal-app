@@ -10,7 +10,7 @@ class CreatePage extends Component {
     phrase: "",
   };
 
-  onSubmit = (data) => {
+  onSubmit = async (data) => {
     this.setState({
       phrase: data.phrase,
     });
@@ -22,13 +22,18 @@ class CreatePage extends Component {
         phrase: this.state.phrase,
       }),
     };
-    fetch("/phrases", requestOptions)
+
+    await fetch("/phrases", requestOptions)
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
   };
 
   render() {
+    const allPhrases = this.props.allPhrases;
+    console.log(allPhrases);
+
+    const lastPhrase = allPhrases?.slice().pop();
     return (
       <div className="create-page">
         <h2 className="header-medium">Today I am grateful for..</h2>
@@ -38,7 +43,11 @@ class CreatePage extends Component {
             <use href={sprite + "#Notes-bro"}></use>
           </svg>
         </div>
-        <TextAreaForm onSubmit={this.onSubmit} />
+        {lastPhrase ? (
+          <TextAreaForm onSubmit={this.onSubmit} lastPhrase={lastPhrase} />
+        ) : (
+          <TextAreaForm onSubmit={this.onSubmit} />
+        )}
       </div>
     );
   }
