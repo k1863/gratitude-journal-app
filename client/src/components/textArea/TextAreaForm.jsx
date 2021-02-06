@@ -4,7 +4,11 @@ import { useHistory } from "react-router-dom";
 
 import "../../sass/style.scss";
 
-export default function TextAreaForm({ onSubmit, lastPhrase }) {
+export default function TextAreaForm({
+  onSubmit,
+  lastPhrase,
+  handleSaveLastPhraseToCurrentPhrase,
+}) {
   // const [phrase, setPhrase] = useState("");
   let history = useHistory();
   console.log(lastPhrase?.phrase);
@@ -17,6 +21,7 @@ export default function TextAreaForm({ onSubmit, lastPhrase }) {
 
   const submitHandler = handleSubmit((data) => {
     onSubmit(data);
+    handleSaveLastPhraseToCurrentPhrase(data);
     history.push("/home");
   });
 

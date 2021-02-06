@@ -1,11 +1,14 @@
 import React from "react";
 import sprite from "../../svg-icons/sprite.svg";
+import ls from "local-storage";
 
 import { Link } from "react-router-dom";
 
 import "../../sass/style.scss";
 
 export default function Home({ lastPhrase }) {
+  const currentPhrase = ls.get("currentPhrase").slice(0).pop();
+  console.log(currentPhrase);
   console.log(lastPhrase);
   return (
     <div className="home-page">
@@ -27,10 +30,10 @@ export default function Home({ lastPhrase }) {
       <svg className="home-page__img" viewBox="0 0 100 100">
         <use href={sprite + "#Left hander-cuate"}></use>
       </svg>
-      {!lastPhrase ? (
-        <h2 className="header-medium">What are you grateful for?</h2>
+      {!currentPhrase ? (
+        <h2 className="header-medium">What are you grateful for today?</h2>
       ) : (
-        <p className="gratitude-text">{lastPhrase?.phrase}</p>
+        <p className="gratitude-text">{currentPhrase.phrase}</p>
       )}
 
       <Link to="/create">
