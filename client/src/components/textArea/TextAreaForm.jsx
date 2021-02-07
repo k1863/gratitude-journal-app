@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 
@@ -7,11 +7,11 @@ import "../../sass/style.scss";
 export default function TextAreaForm({
   onSubmit,
   lastPhrase,
-  handleSaveLastPhraseToCurrentPhrase,
+  handleLastPhraseToLocal,
 }) {
+  const [text, setText] = useState("");
   // const [phrase, setPhrase] = useState("");
   let history = useHistory();
-  console.log(lastPhrase?.phrase);
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -21,10 +21,15 @@ export default function TextAreaForm({
 
   const submitHandler = handleSubmit((data) => {
     onSubmit(data);
-    handleSaveLastPhraseToCurrentPhrase(data);
+    handleLastPhraseToLocal(data);
+
     history.push("/home");
   });
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setText(value);
+  };
   return (
     <form onSubmit={submitHandler}>
       <div className="create-page__phrase">
@@ -35,8 +40,9 @@ export default function TextAreaForm({
           rows="2"
           cols="50"
           autoFocus
-          defaultValue={lastPhrase}
-          ref={register}
+          defaultValue={text}
+          ref={register({ max: 84 })}
+          onChange={handleChange}
         ></textarea>
       </div>
       <button type="submit" className="create-page__btn btn">

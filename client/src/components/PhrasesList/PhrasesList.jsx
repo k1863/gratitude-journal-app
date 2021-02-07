@@ -1,0 +1,30 @@
+import React from "react";
+import "../../sass/style.scss";
+import Moment from "react-moment";
+import "moment-timezone";
+
+function PhrasesList({ items, searchResults, allPhrases }) {
+  if (!items && !allPhrases) {
+    console.log("data empty");
+    <h3 style={{ textAlign: "center" }}>Data not found</h3>;
+  } else {
+    return (
+      <div className="phrases-list">
+        {searchResults?.map((phrase) => (
+          <div key={phrase._id} className="phrases-list__item">
+            <div className="phrases-list__date">
+              <p>
+                {" "}
+                <Moment format="YYYY/MM/DD">{phrase.createdAt}</Moment>
+              </p>
+            </div>
+
+            <p className="phrases-list__text">{phrase.phrase}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+
+export default PhrasesList;

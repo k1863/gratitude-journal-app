@@ -1,4 +1,5 @@
 .home-page {
+  position: relative;
   header {
     display: flex;
     justify-content: space-between;
@@ -8,6 +9,10 @@
     & h2 {
       @include header-medium;
     }
+  }
+
+  .__main-section {
+    position: relative;
   }
 
   &__triple-dots {
@@ -36,9 +41,8 @@
     width: 90%;
   }
   &__btn {
-    position: absolute;
-    bottom: 4rem;
-    right: 3rem;
+    margin-left: auto;
+    margin-top: 4rem;
   }
 }
 

@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import sprite from "../../svg-icons/sprite.svg";
-import ls from "local-storage";
+import PhraseList from "../../components/PhrasesList/PhrasesList";
 
 import { Link } from "react-router-dom";
 
 import "../../sass/style.scss";
 
-export default function Home({ lastPhrase }) {
-  const currentPhrase = ls.get("currentPhrase").slice(0).pop();
-  console.log(currentPhrase);
-  console.log(lastPhrase);
+export default function Home({ handleSaveDataToLocal, allPhrases }) {
+  const [searchInput, setInput] = useState("");
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const searchValue = e.target.value;
+    setInput(searchValue);
+    console.log(searchValue);
+  };
+
+  useEffect(() => {
+    handleSaveDataToLocal(allPhrases);
+  });
+
+  const items = JSON.parse(localStorage.getItem("allLocalPhrases"));
+
+  console.log(items);
+
+  let currentPhrase = allPhrases.slice(0).pop().phrase;
+  let localCurrentPhrase = items.slice(0).pop().phrase;
+  const searchResults = items?.filter((item) =>
+    item.phrase.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
   return (
     <div className="home-page">
       <header>
@@ -22,27 +42,44 @@ export default function Home({ lastPhrase }) {
         <svg className="home-page__search-icon">
           <use href={sprite + "#search"}></use>
         </svg>
-        <input type="text" name="searchInput" id="searchInput" />
+        <input
+          type="text"
+          name="searchInput"
+          id="searchInput"
+          onChange={handleChange}
+        />
         <svg className="home-page__calendar">
           <use href={sprite + "#calendar-alt-fill"}></use>
         </svg>
       </div>
-      <svg className="home-page__img" viewBox="0 0 100 100">
-        <use href={sprite + "#Left hander-cuate"}></use>
-      </svg>
-      {!currentPhrase ? (
-        <h2 className="header-medium">What are you grateful for today?</h2>
+      {searchInput ? (
+        <PhraseList
+          allPhrases={allPhrases}
+          searchResults={searchResults}
+          items={items}
+        />
       ) : (
-        <p className="gratitude-text">{currentPhrase.phrase}</p>
-      )}
+        <div className="home-page__main-section">
+          <svg className="home-page__img" viewBox="0 0 100 100">
+            <use href={sprite + "#Left hander-cuate"}></use>
+          </svg>
+          {!currentPhrase && localCurrentPhrase ? (
+            <h2 className="header-medium">What are you grateful for today?</h2>
+          ) : (
+            <p className="gratitude-text">
+              {currentPhrase || localCurrentPhrase}
+            </p>
+          )}
 
-      <Link to="/create">
-        {!lastPhrase ? (
-          <button className="home-page__btn btn">&#43; Create</button>
-        ) : (
-          <button className="home-page__btn btn"> Edit</button>
-        )}
-      </Link>
+          <Link to="/create">
+            {!currentPhrase ? (
+              <button className="home-page__btn btn">&#43; Create</button>
+            ) : (
+              <button className="home-page__btn btn"> Edit</button>
+            )}
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

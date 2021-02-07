@@ -1,0 +1,28 @@
+.phrases-list {
+  position: relative;
+
+  color: $color-grey-dark;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  &__date {
+    margin-right: 1.6rem;
+  }
+
+  &__date h3 {
+    font-size: 2rem;
+    font-family: "Merriweather", serif;
+  }
+  &__date p {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  &__text {
+    font-size: 1.8rem;
+  }
+}
