@@ -3,16 +3,21 @@ import SplashPage from "./pages/SplashPage/SplashPage.jsx";
 import HomePage from "./pages/Home/Home.jsx";
 import CreatePage from "./pages/CreatePage/CreatePage.jsx";
 import { Switch, Route } from "react-router-dom";
+import LoadSpinner from "./components/LoadingSpinner/LoadingSpinner.jsx";
 import axios from "axios";
 
+const HomePageWithSpinner = LoadSpinner(HomePage);
 function App() {
   const [data, setData] = useState({ allPhrases: [] });
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const resp = await axios.get("/phrases");
 
       setData(resp.data);
+      setIsLoading(false);
+      handleSaveDataToLocal(resp.data);
     };
 
     fetchData();
@@ -20,9 +25,10 @@ function App() {
 
   const handleSaveDataToLocal = (data) => {
     localStorage.setItem("allLocalPhrases", JSON.stringify(data));
+    console.log("passedDataToLocal");
   };
 
-  const handleLastPhraseToLocal = (newPhrase) => {
+  const handleLastPhraseToLocal = (data) => {
     localStorage.setItem("localNewPhrase", JSON.stringify(data));
   };
 
@@ -64,6 +70,8 @@ function App() {
   // let currentLastPhrase = localPhrases.slice(0).pop().phrase;
   // console.log(currentLastPhrase);
   console.log(data);
+  console.log(isLoading);
+
   return (
     <div>
       <Switch>
@@ -71,11 +79,13 @@ function App() {
         <Route
           exact
           path="/home"
-          render={() => (
-            <HomePage
+          render={(props) => (
+            <HomePageWithSpinner
+              isLoading={isLoading}
               allPhrases={data}
               handleSaveDataToLocal={handleSaveDataToLocal}
               handleLastPhraseToLocal={handleLastPhraseToLocal}
+              {...props}
             />
           )}
         />

@@ -16,17 +16,22 @@ export default function Home({ handleSaveDataToLocal, allPhrases }) {
     console.log(searchValue);
   };
 
-  useEffect(() => {
+  /*   useEffect(() => {
     handleSaveDataToLocal(allPhrases);
   });
-
+ */
   const items = JSON.parse(localStorage.getItem("allLocalPhrases"));
 
   console.log(items);
-
+  const localPhrase = JSON.parse(localStorage.getItem("allLocalPhrases"))
+    .phrase;
   let currentPhrase = allPhrases.slice(0).pop().phrase;
-  let localCurrentPhrase = items.slice(0).pop().phrase;
-  const searchResults = items?.filter((item) =>
+  console.log(localPhrase);
+  console.log(currentPhrase);
+  /*  let localCurrentPhrase = items
+    ? items.slice(0).pop().phrase
+    : localPhrase.slice(0).pop().phrase; */
+  const searchResults = allPhrases?.filter((item) =>
     item.phrase.toLowerCase().includes(searchInput.toLowerCase())
   );
 
@@ -63,12 +68,10 @@ export default function Home({ handleSaveDataToLocal, allPhrases }) {
           <svg className="home-page__img" viewBox="0 0 100 100">
             <use href={sprite + "#Left hander-cuate"}></use>
           </svg>
-          {!currentPhrase && localCurrentPhrase ? (
+          {!currentPhrase && !localPhrase ? (
             <h2 className="header-medium">What are you grateful for today?</h2>
           ) : (
-            <p className="gratitude-text">
-              {currentPhrase || localCurrentPhrase}
-            </p>
+            <p className="gratitude-text">{currentPhrase || localPhrase}</p>
           )}
 
           <Link to="/create">

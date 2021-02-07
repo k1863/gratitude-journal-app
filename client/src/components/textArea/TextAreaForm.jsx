@@ -6,16 +6,18 @@ import "../../sass/style.scss";
 
 export default function TextAreaForm({
   onSubmit,
-  lastPhrase,
+  currentLastPhrase,
   handleLastPhraseToLocal,
+  handleSaveDataToLocal,
 }) {
   const [text, setText] = useState("");
   // const [phrase, setPhrase] = useState("");
   let history = useHistory();
 
+  /*   const defaultText = currentLastPhrase.slice(0).pop().phrase; */
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      phrase: lastPhrase?.phrase,
+      phrase: currentLastPhrase,
     },
   });
 
@@ -30,6 +32,7 @@ export default function TextAreaForm({
     const value = e.target.value;
     setText(value);
   };
+
   return (
     <form onSubmit={submitHandler}>
       <div className="create-page__phrase">

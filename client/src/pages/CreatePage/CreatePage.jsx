@@ -5,7 +5,11 @@ import TextAreaForm from "../../components/textArea/TextAreaForm";
 
 import "../../sass/style.scss";
 
-function CreatePage({ allPhrases, handleLastPhraseToLocal }) {
+function CreatePage({
+  allPhrases,
+  handleLastPhraseToLocal,
+  handleSaveDataToLocal,
+}) {
   const onSubmit = async (data) => {
     const requestOptions = {
       method: "POST",
@@ -21,6 +25,7 @@ function CreatePage({ allPhrases, handleLastPhraseToLocal }) {
       .catch((err) => console.log(err));
   };
 
+  const lastPhraseFetched = allPhrases.slice(0).pop().phrase;
   /* handleSaveLastPhraseToCurrentPhrase = (newPhrase) => {
     //setting relevant pieces of state to variable
     // let currentPhraseState = this.state.currentPhrase;
@@ -43,7 +48,10 @@ function CreatePage({ allPhrases, handleLastPhraseToLocal }) {
     console.log(this.state.currentPhrase); */
   /*    var localPhrases = ls.get("currentPhrase");
     console.log(localPhrases); */
-  let currentLastPhrase = JSON.parse(localStorage.getItem("localNewPhrase"));
+  const items = JSON.parse(localStorage.getItem("allLocalPhrases"));
+
+  let currentLastPhrase = items.slice(0).pop().phrase;
+  console.log(currentLastPhrase);
 
   return (
     <div className="create-page">
@@ -57,12 +65,15 @@ function CreatePage({ allPhrases, handleLastPhraseToLocal }) {
       {!currentLastPhrase ? (
         <TextAreaForm
           onSubmit={onSubmit}
+          lastPhraseFetched={lastPhraseFetched}
           handleLastPhraseToLocal={handleLastPhraseToLocal}
         />
       ) : (
         <TextAreaForm
           onSubmit={onSubmit}
+          lastPhraseFetched={lastPhraseFetched}
           currentLastPhrase={currentLastPhrase}
+          handleSaveDataToLocal={handleSaveDataToLocal}
           handleLastPhraseToLocal={handleLastPhraseToLocal}
         />
       )}
