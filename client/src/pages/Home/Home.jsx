@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import sprite from "../../svg-icons/sprite.svg";
 import PhraseList from "../../components/PhrasesList/PhrasesList";
 
@@ -16,19 +16,15 @@ export default function Home() {
     console.log(searchValue);
   };
 
-  /*   useEffect(() => {
-    handleSaveDataToLocal(allPhrases);
-  });
- */
   const allLocalPhrases = JSON.parse(localStorage.getItem("allLocalPhrases"));
 
   console.log(allLocalPhrases);
   const localNewPhrase = JSON.parse(localStorage.getItem("localNewPhrase"));
 
-  console.log(localNewPhrase);
+  /*   console.log(localNewPhrase); */
 
   const searchResults = allLocalPhrases?.filter((item) =>
-    item.phrase.toLowerCase().includes(searchInput.toLowerCase())
+    item?.phrase?.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   return (

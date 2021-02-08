@@ -9,7 +9,6 @@ export default function TextAreaForm({
   localNewPhrase,
   handleLastPhraseToLocal,
 }) {
-  console.log(localNewPhrase);
   const [text, setText] = useState("");
   // const [phrase, setPhrase] = useState("");
   let history = useHistory();
@@ -17,7 +16,7 @@ export default function TextAreaForm({
   /*   const defaultText =localNewPhrase.slice(0).pop().phrase; */
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      phrase: localNewPhrase.phrase,
+      phrase: localNewPhrase?.phrase,
     },
   });
 

@@ -1,6 +1,3 @@
-const dbuser = "admin-user";
-const dbpassword = "tsvXNcnCwPbiGiWw";
-
-const MONGODB_URI = `mongodb://${dbuser}:${dbpassword}@ds125453.mlab.com:25453/mern-example`;
+const MONGODB_URI = `mongodb+srv://admin-user:tsvXNcnCwPbiGiWw@cluster0.h4hfb.mongodb.net/gratitudeAppTest?retryWrites=true&w=majority`;
 
 module.exports = MONGODB_URI;

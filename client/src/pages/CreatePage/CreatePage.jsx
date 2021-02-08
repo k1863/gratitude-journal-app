@@ -8,10 +8,10 @@ import "../../sass/style.scss";
 function CreatePage({ handleLastPhraseToLocal }) {
   const onSubmit = async (data) => {
     const requestOptions = {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.parse({
-        phrase: data,
+      body: JSON.stringify({
+        phrase: data.phrase,
       }),
     };
 

@@ -1,5 +1,9 @@
+/* eslint-disable */
 const express = require("express");
 const router = express.Router();
+var moment = require("moment"); // require
+const { Mongoose } = require("mongoose");
+
 const Phrase = require("../models/PhraseModel");
 
 //Gets all phrases
@@ -46,14 +50,62 @@ router.delete("/:phraseId", async (req, res) => {
   }
 });
 
-router.patch("/:phraseId", async (req, res) => {
-  try {
+router.put("/", async (req, res) => {
+  const start = moment().startOf("day").toDate(); // set to 12:00 am today
+  const end = moment().endOf("day").toDate(); // set to 23:59 pm today
+  console.log(req.body);
+
+  const { id } = req.params;
+  const { phrase, created, updatedAt } = req.body;
+
+  const updatedPost = { phrase, created: Date.now() };
+  await Phrase.findOneAndUpdate(
+    { created: { $gte: start, $lte: end } },
+    updatedPost,
+    {
+      new: true,
+      upsert: true,
+    }
+  );
+  res.json(updatedPost);
+  console.log(updatedPost);
+  /*  await Phrase.replaceOne(
+    {
+      created: { $gte: start, $lte: end },
+    },
+    { phrase: req.body.phrase },
+    {
+      upsert: true,
+    }
+  );
+
+  // Load the document to see the updated value
+  const doc = await Phrase.findOne();
+  doc.title; // "King in the North" */
+
+  /* Phrase.findOneAndUpdate(
+    {
+      created: { $gte: start, $lte: end },
+    },
+    { $set: { phrase: req.body.phrase } },
+    {
+      upsert: true,
+      new: true,
+    },
+    (err, report) => {
+      console.log(report);
+    }
+  ); 
+  */
+  /*  try {
     const updatedPhrase = await Phrase.updateOne({ _id: req.params.phraseId });
 
     res.json(updatedPhrase);
   } catch (err) {
     res.json({ message: err });
-  }
+  } */
 });
+
+router.patch("");
 
 module.exports = router;
