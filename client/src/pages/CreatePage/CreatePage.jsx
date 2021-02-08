@@ -5,16 +5,12 @@ import TextAreaForm from "../../components/textArea/TextAreaForm";
 
 import "../../sass/style.scss";
 
-function CreatePage({
-  allPhrases,
-  handleLastPhraseToLocal,
-  handleSaveDataToLocal,
-}) {
+function CreatePage({ handleLastPhraseToLocal }) {
   const onSubmit = async (data) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+      body: JSON.parse({
         phrase: data,
       }),
     };
@@ -25,33 +21,7 @@ function CreatePage({
       .catch((err) => console.log(err));
   };
 
-  const lastPhraseFetched = allPhrases.slice(0).pop().phrase;
-  /* handleSaveLastPhraseToCurrentPhrase = (newPhrase) => {
-    //setting relevant pieces of state to variable
-    // let currentPhraseState = this.state.currentPhrase;
-
-    if (!this.state.currentPhrase.includes(newPhrase)) {
-      //  creating variable representing current saved phrase
-      let newCurrentPhrase = [newPhrase];
-
-      //  updating React state with variable:
-      this.setState({
-        currentPhrase: newCurrentPhrase,
-      });
-
-      //  updating localStorage state with same variable:
-      ls.set("currentPhrase", newCurrentPhrase);
-    }
-  }; */
-
-  /* console.log(this.state.allPhrases);
-    console.log(this.state.currentPhrase); */
-  /*    var localPhrases = ls.get("currentPhrase");
-    console.log(localPhrases); */
-  const items = JSON.parse(localStorage.getItem("allLocalPhrases"));
-
-  let currentLastPhrase = items.slice(0).pop().phrase;
-  console.log(currentLastPhrase);
+  let localNewPhrase = JSON.parse(localStorage.getItem("localNewPhrase"));
 
   return (
     <div className="create-page">
@@ -62,18 +32,15 @@ function CreatePage({
           <use href={sprite + "#Notes-bro"}></use>
         </svg>
       </div>
-      {!currentLastPhrase ? (
+      {!localNewPhrase ? (
         <TextAreaForm
           onSubmit={onSubmit}
-          lastPhraseFetched={lastPhraseFetched}
           handleLastPhraseToLocal={handleLastPhraseToLocal}
         />
       ) : (
         <TextAreaForm
           onSubmit={onSubmit}
-          lastPhraseFetched={lastPhraseFetched}
-          currentLastPhrase={currentLastPhrase}
-          handleSaveDataToLocal={handleSaveDataToLocal}
+          localNewPhrase={localNewPhrase}
           handleLastPhraseToLocal={handleLastPhraseToLocal}
         />
       )}

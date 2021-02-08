@@ -30,6 +30,7 @@ function App() {
 
   const handleLastPhraseToLocal = (data) => {
     localStorage.setItem("localNewPhrase", JSON.stringify(data));
+    console.log("passed one phrase to local");
   };
 
   /*  handleSaveFetchedPhrasesToLocalPhrases = (newPhrases) => {
@@ -80,13 +81,7 @@ function App() {
           exact
           path="/home"
           render={(props) => (
-            <HomePageWithSpinner
-              isLoading={isLoading}
-              allPhrases={data}
-              handleSaveDataToLocal={handleSaveDataToLocal}
-              handleLastPhraseToLocal={handleLastPhraseToLocal}
-              {...props}
-            />
+            <HomePageWithSpinner isLoading={isLoading} {...props} />
           )}
         />
         <Route

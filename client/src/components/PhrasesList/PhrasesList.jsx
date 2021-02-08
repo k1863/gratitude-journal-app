@@ -3,9 +3,8 @@ import "../../sass/style.scss";
 import Moment from "react-moment";
 import "moment-timezone";
 
-function PhrasesList({ items, searchResults, allPhrases }) {
-  if (!items && !allPhrases) {
-    console.log("data empty");
+function PhrasesList({ allLocalPhrases, searchResults }) {
+  if (!allLocalPhrases) {
     <h3 style={{ textAlign: "center" }}>Data not found</h3>;
   } else {
     return (

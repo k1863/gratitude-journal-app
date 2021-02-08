@@ -6,25 +6,25 @@ import "../../sass/style.scss";
 
 export default function TextAreaForm({
   onSubmit,
-  currentLastPhrase,
+  localNewPhrase,
   handleLastPhraseToLocal,
-  handleSaveDataToLocal,
 }) {
+  console.log(localNewPhrase);
   const [text, setText] = useState("");
   // const [phrase, setPhrase] = useState("");
   let history = useHistory();
 
-  /*   const defaultText = currentLastPhrase.slice(0).pop().phrase; */
+  /*   const defaultText =localNewPhrase.slice(0).pop().phrase; */
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      phrase: currentLastPhrase,
+      phrase: localNewPhrase.phrase,
     },
   });
 
   const submitHandler = handleSubmit((data) => {
+    console.log(JSON.stringify(data));
     onSubmit(data);
     handleLastPhraseToLocal(data);
-
     history.push("/home");
   });
 
