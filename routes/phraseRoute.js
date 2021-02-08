@@ -52,8 +52,10 @@ router.delete("/:phraseId", async (req, res) => {
 
 router.put("/", async (req, res) => {
   const start = moment().startOf("day").toDate(); // set to 12:00 am today
-  const end = moment().endOf("day").toDate(); // set to 23:59 pm today
+  const end = moment().endOf("end").toDate(); // set to 23:59 pm today
   console.log(req.body);
+  console.log(start);
+  console.log(end);
 
   const { id } = req.params;
   const { phrase, created, updatedAt } = req.body;

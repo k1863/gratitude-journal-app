@@ -8,6 +8,7 @@ export default function TextAreaForm({
   onSubmit,
   localNewPhrase,
   handleLastPhraseToLocal,
+  handleSaveDataToLocal,
 }) {
   const [text, setText] = useState("");
   // const [phrase, setPhrase] = useState("");

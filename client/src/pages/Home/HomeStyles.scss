@@ -1,5 +1,4 @@
 .home-page {
-  position: relative;
   header {
     display: flex;
     justify-content: space-between;
@@ -7,7 +6,7 @@
     font-family: $font-family-secondary;
 
     & h2 {
-      @include header-medium;
+      @include header-secondary;
     }
   }
 
@@ -40,9 +39,15 @@
     margin: 2rem 0;
     width: 90%;
   }
+
+  &__date {
+    font-size: 1.8rem;
+    color: $color-grey;
+  }
   &__btn {
-    margin-left: auto;
-    margin-top: 4rem;
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
   }
 }
 
@@ -58,9 +63,10 @@
   background-color: $color-grey-light;
   outline: none;
   border: none;
-  width: 28rem;
+  width: 35rem;
   height: 5rem;
   border-radius: 2rem;
+  font-size: 2rem;
 }
 
 .header-medium {
@@ -71,4 +77,8 @@
 
 .gratitude-text {
   font-size: 2rem;
+  background-color: $color-primary;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
 }

@@ -33,43 +33,6 @@ function App() {
     console.log("passed one phrase to local");
   };
 
-  /*  handleSaveFetchedPhrasesToLocalPhrases = (newPhrases) => {
-    //setting relevant pieces of state to variable
-    // let currentPhraseState = this.state.currentPhrase;
-
-    if (this.state.allPhrases?.includes(newPhrases)) {
-      const phrasesInState = this.state.allPhrases;
-      //  creating variable representing current saved phrase
-      let newCurrentPhrases = [...phrasesInState, newPhrases];
-
-      //  updating React state with variable:
-      this.setState({
-        localPhrases: newCurrentPhrases,
-      });
-
-      //  updating localStorage state with same variable:
-      ls.set("localPhrases", newCurrentPhrases);
-    }
-
-    let newPhrase = this.state.allPhrases.slice(0).pop();
-
-    if (!this.state.currentPhrase.includes(newPhrase)) {
-      //  creating variable representing current saved phrase
-      let newCurrentPhrase = [newPhrase];
-
-      //  updating React state with variable:
-      this.setState({
-        currentPhrase: newCurrentPhrase,
-      });
-
-      //  updating localStorage state with same variable:
-      ls.set("currentPhrase", newCurrentPhrase);
-    }
-  }; */
-
-  // console.log(localPhrases);
-  // let currentLastPhrase = localPhrases.slice(0).pop().phrase;
-  // console.log(currentLastPhrase);
   console.log(data);
   console.log(isLoading);
 

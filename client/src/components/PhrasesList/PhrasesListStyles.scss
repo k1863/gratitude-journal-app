@@ -6,11 +6,24 @@
   &__item {
     display: flex;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   &__date {
-    margin-right: 1.6rem;
+    margin-right: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    & p {
+      line-height: 1.4;
+    }
+  }
+
+  &__day {
+    font-size: 2.4rem;
+    font-weight: 500;
   }
 
   &__date h3 {
@@ -18,8 +31,9 @@
     font-family: "Merriweather", serif;
   }
   &__date p {
-    font-size: 1.6rem;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 400;
+    color: $color-secondary;
   }
 
   &__text {

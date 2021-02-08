@@ -13,8 +13,15 @@ function PhrasesList({ allLocalPhrases, searchResults }) {
           <div key={phrase._id} className="phrases-list__item">
             <div className="phrases-list__date">
               <p>
-                {" "}
-                <Moment format="YYYY/MM/DD">{phrase.createdAt}</Moment>
+                <Moment format="MMM">{phrase.createdAt}</Moment>
+              </p>
+              <p>
+                <Moment className="phrases-list__day" format="Do">
+                  {phrase.createdAt}
+                </Moment>
+              </p>
+              <p>
+                <Moment format="YYYY">{phrase.createdAt}</Moment>
               </p>
             </div>
 
