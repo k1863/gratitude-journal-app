@@ -1,0 +1,67 @@
+.sign-in-page {
+  width: 100%;
+  margin-top: 15rem;
+
+  & > h1 {
+    @include header-primary;
+    text-align: center;
+  }
+
+  & > h2 {
+    color: $color-grey-dark;
+    text-align: center;
+    font-weight: 400 !important;
+    width: 100% !important;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .page-link {
+    color: $color-grey;
+    font-size: 1.4rem;
+    text-align: left;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 400;
+  }
+  .navigate-link {
+    &:hover {
+      color: #3a3a3a;
+      cursor: pointer;
+    }
+  }
+
+  .sign-in-img {
+    width: 100%;
+  }
+
+  .text-details {
+    font-size: 1.5rem;
+  }
+  .sign-btn {
+    width: 100% !important;
+  }
+
+  .header-tertiary {
+    font-size: 1.4rem;
+    color: $color-grey-dark;
+    margin-top: 2rem;
+    letter-spacing: 0.6px;
+  }
+  .sign-in-option {
+    margin: 2rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .account-link {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #3a3a3a;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

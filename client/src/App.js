@@ -5,6 +5,7 @@ import CreatePage from "./pages/CreatePage/CreatePage.jsx";
 import { Switch, Route } from "react-router-dom";
 import LoadSpinner from "./components/LoadingSpinner/LoadingSpinner.jsx";
 import axios from "axios";
+import SignIn from "./components/SignIn/SignIn.jsx";
 
 const HomePageWithSpinner = LoadSpinner(HomePage);
 function App() {
@@ -39,7 +40,8 @@ function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={SplashPage} />
+        <Route exact path="/" component={SignIn} />
+        <Route exact path="/splash" component={SplashPage} />
         <Route
           exact
           path="/home"
