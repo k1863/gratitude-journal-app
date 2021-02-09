@@ -4,6 +4,7 @@ const buttonStyles = css`
   background-color: #00a08f;
   color: white;
   border: none;
+  border-radius: 1rem;
 
   &:hover {
     background-color: #ffd454;
@@ -31,6 +32,7 @@ const googleSignInStyles = css`
   background-color: #4285f4;
   color: white;
   border: none;
+  border-radius: 1rem;
 
   &:hover {
     background-color: #357ae8;

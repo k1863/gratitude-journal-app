@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import sprite from "../../svg-icons/sprite.svg";
+import logoutSprite from "../../svg-icons/logoutSprite.svg";
 import Moment from "react-moment";
 import "moment-timezone";
 import PhraseList from "../../components/PhrasesList/PhrasesList";
+import { auth } from "../../firebase/firebaseUtils.js";
 
 import { Link } from "react-router-dom";
 
@@ -46,9 +48,12 @@ export default function Home() {
           id="searchInput"
           onChange={handleChange}
         />
-        <svg className="home-page__triple-dots">
-          <use href={sprite + "#dots-horizontal-triple"}></use>
-        </svg>
+        <div className="logout-wrapper" onClick={() => auth.signOut()}>
+          <svg className="home-page__triple-dots">
+            <use href={logoutSprite + "#log-out"}></use>
+          </svg>
+        </div>
+
         {/*  <svg className="home-page__calendar">
           <use href={sprite + "#calendar-alt-fill"}></use>
         </svg> */}

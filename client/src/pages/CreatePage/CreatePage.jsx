@@ -6,13 +6,23 @@ import TextAreaForm from "../../components/textArea/TextAreaForm";
 
 import "../../sass/style.scss";
 
-function CreatePage({ handleLastPhraseToLocal, handleSaveDataToLocal }) {
+function CreatePage({ currentUser }) {
+  const handleSaveDataToLocal = (data) => {
+    localStorage.setItem("allLocalPhrases", JSON.stringify(data));
+    console.log("passedDataToLocal");
+  };
+  const handleLastPhraseToLocal = (data) => {
+    localStorage.setItem("localNewPhrase", JSON.stringify(data));
+    console.log("passed one phrase to local");
+  };
+
   const onSubmit = async (data) => {
     const requestOptions = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         phrase: data.phrase,
+        currentUser: currentUser.id,
       }),
     };
 

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import FormInput from "../FormInput/FormInput";
 import CustomButton from "../CustomButton/CustomButton";
 import { auth, signInWithGoogle } from "../../firebase/firebaseUtils.js";
-import { Link } from "react-router-dom";
 
 import "../../sass/style.scss";
 

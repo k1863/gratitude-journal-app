@@ -3,14 +3,12 @@ import "firebase/auth";
 import "firebase/firestore";
 
 const config = {
-  apiKey: "AIzaSyAxFhkXh7LQp9inqMEqfmT09IYQC9ItLYs",
-  authDomain: "coruja-db.firebaseapp.com",
-  databaseURL: "https://coruja-db.firebaseio.com",
-  projectId: "coruja-db",
-  storageBucket: "coruja-db.appspot.com",
-  messagingSenderId: "701876962423",
-  appId: "1:701876962423:web:3e7df959919642a33ef272",
-  measurementId: "G-1BCBH1Z01G",
+  apiKey: "AIzaSyAPk8SlUliLaQ0n2N0K0ECzkmA6doYcjRQ",
+  authDomain: "gratitude-journal-app-f8368.firebaseapp.com",
+  projectId: "gratitude-journal-app-f8368",
+  storageBucket: "gratitude-journal-app-f8368.appspot.com",
+  messagingSenderId: "1005093050573",
+  appId: "1:1005093050573:web:9e9c0fb9e4af96d685f184",
 };
 
 firebase.initializeApp(config);

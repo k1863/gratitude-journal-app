@@ -13,14 +13,7 @@
   .__main-section {
     position: relative;
   }
-
-  &__triple-dots {
-    height: 4rem;
-    width: 4rem;
-    fill: $color-secondary;
-  }
-
-  &__search-icon {
+  & &__search-icon {
     height: 3rem;
     width: 3rem;
     position: absolute;
@@ -81,4 +74,14 @@
   padding: 1rem;
   border-radius: 5px;
   margin-top: 1rem;
+}
+
+.home-page__triple-dots {
+  width: 4rem;
+  fill: $color-secondary;
+  height: 4rem;
+}
+
+.logout-wrapper {
+  cursor: pointer;
 }

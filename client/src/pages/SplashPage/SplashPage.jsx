@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import sprite from "../../svg-icons/sprite.svg";
-import SignIn from "../../components/SignIn/SignIn";
 import { Link } from "react-router-dom";
 
 import "../../sass/style.scss";
 
 const Splash = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => {
-    setClick(true);
-  };
   return (
     <div className="splash-page">
       <h1 className="header-primary">
@@ -23,12 +18,11 @@ const Splash = () => {
       <p className="paragraph">
         What are you grateful for today? Capture that on a simple phrase and
         save it. View gratitude statements from a previous day through the
-        calendar.
+        search.
       </p>
-
-      <button onClick={handleClick} className="btn splash-page__btn">
-        &rarr; Let's Start
-      </button>
+      <Link to="/home">
+        <button className="btn splash-page__btn">&rarr; Let's Start</button>
+      </Link>
     </div>
   );
 };

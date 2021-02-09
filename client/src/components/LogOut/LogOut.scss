@@ -1,0 +1,43 @@
+.navigation {
+  width: 5rem;
+}
+
+.logout {
+  font-size: 1.8rem;
+  font-family: "Oswald", sans-serif;
+  position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity 0.45s;
+  -webkit-transition: opacity 0.35s;
+}
+
+.navigation__button {
+  text-decoration: none;
+  float: right;
+  padding: 1rem;
+  margin: 1.2rem;
+  color: white;
+  width: 2rem;
+  background-color: black;
+  transition: width 0.35s ease-in;
+  -webkit-transition: width 0.35s;
+  overflow: hidden;
+
+  &:hover {
+    width: 4rem;
+  }
+}
+
+.navigation__button:hover .logout {
+  opacity: 0.9;
+}
+
+.navigation__triple-dots {
+  height: 4rem;
+  width: 4rem;
+  fill: $color-secondary;
+}
