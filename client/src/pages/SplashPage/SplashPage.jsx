@@ -1,5 +1,6 @@
 import React from "react";
 import sprite from "../../svg-icons/sprite.svg";
+
 import { Link } from "react-router-dom";
 
 import "../../sass/style.scss";
@@ -18,7 +19,7 @@ const Splash = () => {
       <p className="paragraph">
         What are you grateful for today? Capture that on a simple phrase and
         save it. View gratitude statements from a previous day through the
-        search.
+        calendar.
       </p>
       <Link to="/home">
         <button className="btn splash-page__btn">&rarr; Let's Start</button>

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import sprite from "../../svg-icons/sprite.svg";
-import logoutSprite from "../../svg-icons/logoutSprite.svg";
 import Moment from "react-moment";
 import "moment-timezone";
 import PhraseList from "../../components/PhrasesList/PhrasesList";
-import { auth } from "../../firebase/firebaseUtils.js";
 
 import { Link } from "react-router-dom";
 
@@ -17,22 +15,24 @@ export default function Home() {
     e.preventDefault();
     const searchValue = e.target.value;
     setInput(searchValue);
-    console.log(searchValue);
   };
 
   const allLocalPhrasesArr = JSON.parse(
     localStorage.getItem("allLocalPhrases")
   );
-  console.log(allLocalPhrasesArr[0]);
+  /*   console.log(allLocalPhrasesArr[0]); */
   let allLocalPhrases = allLocalPhrasesArr[0];
+  const lastPost = allLocalPhrasesArr?.slice(0).pop();
+
+  const newPost = JSON.parse(localStorage.getItem("localNewPhrase"));
+
   /*   const localNewPhrase = JSON.parse(localStorage.getItem("localNewPhrase")); */
 
   const searchResults = allLocalPhrasesArr?.filter((item) =>
     item?.phrase?.toLowerCase().includes(searchInput.toLowerCase())
   );
 
-  const today = Date.now();
-  console.log(today);
+  console.log(allLocalPhrases);
   return (
     <div className="home-page">
       <header>
@@ -48,12 +48,9 @@ export default function Home() {
           id="searchInput"
           onChange={handleChange}
         />
-        <div className="logout-wrapper" onClick={() => auth.signOut()}>
-          <svg className="home-page__triple-dots">
-            <use href={logoutSprite + "#log-out"}></use>
-          </svg>
-        </div>
-
+        <svg className="home-page__triple-dots">
+          <use href={sprite + "#dots-horizontal-triple"}></use>
+        </svg>
         {/*  <svg className="home-page__calendar">
           <use href={sprite + "#calendar-alt-fill"}></use>
         </svg> */}
@@ -73,10 +70,16 @@ export default function Home() {
           ) : (
             <span>
               <h2 className="header-medium">Today I am grateful for..</h2>
-              <Moment className="home-page__date" format="MMM Do YYYY">
-                {allLocalPhrases.createdAt}
-              </Moment>
-              <p className="gratitude-text">{allLocalPhrases.phrase}</p>
+              <span className="home-page__date">
+                Last update
+                <Moment format="MMM Do YYYY">
+                  {newPost ? newPost.createdAt : lastPost.createdAt}
+                </Moment>
+              </span>
+
+              <p className="gratitude-text">
+                {newPost ? newPost.phrase : lastPost.phrase}
+              </p>
             </span>
           )}
 

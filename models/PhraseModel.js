@@ -6,6 +6,10 @@ const PhraseSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    currentUser: {
+      type: String,
+      required: true,
+    },
     created: {
       type: Date,
       default: Date.now,
@@ -15,4 +19,15 @@ const PhraseSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Phrases", PhraseSchema);
+/* 
+const PhraseSchema = mongoose.Schema(
+  {
+    currentUser: {
+      id: { type: String, required: true },
+      phrase: { type: String, required: true },
+    },
+  },
+  { timestamps: true }
+); */
+
+module.exports = mongoose.model("Phrase", PhraseSchema);

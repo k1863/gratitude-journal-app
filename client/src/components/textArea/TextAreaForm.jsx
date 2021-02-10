@@ -1,23 +1,17 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { handleLastPhraseToLocal } from "../../utils/utils.js";
 
 import "../../sass/style.scss";
 
-export default function TextAreaForm({
-  onSubmit,
-  localNewPhrase,
-  handleLastPhraseToLocal,
-  handleSaveDataToLocal,
-}) {
-  const [text, setText] = useState("");
-  // const [phrase, setPhrase] = useState("");
+export default function TextAreaForm({ onSubmit, localNewPhrase }) {
   let history = useHistory();
 
   /*   const defaultText =localNewPhrase.slice(0).pop().phrase; */
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      phrase: localNewPhrase?.phrase,
+      phrase: localNewPhrase,
     },
   });
 
@@ -25,13 +19,9 @@ export default function TextAreaForm({
     console.log(JSON.stringify(data));
     onSubmit(data);
     handleLastPhraseToLocal(data);
+
     history.push("/home");
   });
-
-  const handleChange = (e) => {
-    const value = e.target.value;
-    setText(value);
-  };
 
   return (
     <form onSubmit={submitHandler}>
@@ -43,9 +33,7 @@ export default function TextAreaForm({
           rows="2"
           cols="50"
           autoFocus
-          defaultValue={text}
-          ref={register({ max: 84 })}
-          onChange={handleChange}
+          ref={register({ maxLength: 80 })}
         ></textarea>
       </div>
       <button type="submit" className="create-page__btn btn">
