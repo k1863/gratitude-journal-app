@@ -1,31 +1,63 @@
 .home-page {
+  margin: 5rem;
+
+  @include respond(phone) {
+    margin: 2rem;
+  }
+
   header {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
+    position: absolute;
+    z-index: 3;
+    top: 5rem;
     font-family: $font-family-secondary;
+
+    @include respond(tab-land) {
+      position: relative;
+    }
 
     & h2 {
       @include header-secondary;
+      @include respond(tab-land) {
+        margin-top: 5rem;
+        font-size: 3.2rem;
+      }
+
+      @include respond(phone) {
+        margin-top: 1rem;
+        font-size: 3.2rem;
+      }
     }
   }
-
-  .__main-section {
+  &__main-section {
     position: relative;
-  }
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
 
-  &__triple-dots {
+    @include respond(tab-land) {
+      display: block;
+      margin-top: 0rem;
+    }
+  }
+  & &__search-icon {
     height: 4rem;
     width: 4rem;
-    fill: $color-secondary;
-  }
-
-  &__search-icon {
-    height: 3rem;
-    width: 3rem;
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    left: calc(40% + 20px);
+    fill: $color-secondary;
+
+    @include respond(tab-land) {
+      top: 1rem;
+      left: 1rem;
+      margin-top: 4rem;
+    }
+
+    @include respond(phone) {
+      height: 3rem;
+      width: 3rem;
+      top: 1rem;
+      left: 1rem;
+    }
   }
 
   &__calendar {
@@ -36,23 +68,46 @@
   }
 
   &__img {
-    margin: 2rem 0;
-    width: 90%;
+    width: 40%;
+    margin-right: 5rem;
+
+    @include respond(tab-land) {
+      margin-right: 0;
+      margin-left: 0;
+      transform: translateX(0);
+      width: 60%;
+    }
+    @include respond(phone) {
+      width: 80%;
+    }
   }
 
   &__date {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: $color-grey;
+    margin: 2rem 0;
+
+    @include respond(phone) {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
   }
   &__btn {
-    position: absolute;
+    margin-left: auto;
+    margin-top: 4rem;
     bottom: 3rem;
     right: 3rem;
+
+    @include respond(tab-land) {
+      position: relative;
+      right: 0;
+    }
   }
 }
 
 .search-section {
   margin-top: 4rem;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -60,27 +115,54 @@
 }
 
 #searchInput {
+  width: 60%;
   background-color: $color-grey-light;
+  height: 4rem;
   outline: none;
   border: none;
-  width: 35rem;
-  height: 5rem;
   border-radius: 2rem;
-  font-size: 2rem;
+  font-size: 2.4rem;
+  height: 6rem;
+  margin-left: auto;
+
+  @include respond(tab-land) {
+    width: 80%;
+    margin-left: 0;
+    font-size: 2rem;
+    margin-top: 4rem;
+  }
+
+  @include respond(phone) {
+    height: 5rem;
+    font-size: 2rem;
+  }
 }
 
 .header-medium {
   @include header-medium;
   font-weight: 700;
-  width: 80%;
+  width: 100%;
+  font-size: 3.2rem !important;
 }
 
 .gratitude-text {
-  font-size: 2rem;
+  font-size: 1.8rem;
   background-color: $color-primary;
-  padding: 1rem;
+  padding: 4rem;
   border-radius: 5px;
   margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  @include respond(phone) {
+    font-size: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+.logout-wrapper {
+  cursor: pointer;
 }
 
 time {

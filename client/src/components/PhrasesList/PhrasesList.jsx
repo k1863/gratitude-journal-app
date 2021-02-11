@@ -5,7 +5,7 @@ import "moment-timezone";
 
 function PhrasesList({ allLocalPhrases, searchResults }) {
   if (!allLocalPhrases) {
-    <h3 style={{ textAlign: "center" }}>Data not found</h3>;
+    <h3 className="error-msg">Data not found</h3>;
   } else {
     return (
       <div className="phrases-list">

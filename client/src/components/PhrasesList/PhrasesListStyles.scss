@@ -40,3 +40,12 @@
     font-size: 1.8rem;
   }
 }
+
+.error-msg {
+  color: $color-grey-dark;
+  font-size: 2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+}

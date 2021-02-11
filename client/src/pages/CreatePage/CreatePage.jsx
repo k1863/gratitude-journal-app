@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import sprite from "../../svg-icons/sprite.svg";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,6 @@ import TextAreaForm from "../../components/textArea/TextAreaForm";
 import "../../sass/style.scss";
 
 function CreatePage() {
-  const [localStatePost, setLocalPost] = useState("");
   const onSubmit = async (data) => {
     const requestOptions = {
       method: "PUT",
@@ -28,18 +27,20 @@ function CreatePage() {
 
   return (
     <div className="create-page">
-      <h2 className="header-medium">Today I am grateful for..</h2>
-
       <div className="create-page__img-box">
         <svg className="create-page__img" viewBox="0 0 100 100">
           <use href={sprite + "#Notes-bro"}></use>
         </svg>
       </div>
-      {localNewPhrase ? (
-        <TextAreaForm onSubmit={onSubmit} localNewPhrase={localNewPhrase} />
-      ) : (
-        <TextAreaForm onSubmit={onSubmit} localNewPhrase={localNewPhrase} />
-      )}
+      <div className="create-page__main">
+        <h3 className="header-medium">Today I am grateful for..</h3>
+
+        {localNewPhrase ? (
+          <TextAreaForm onSubmit={onSubmit} localNewPhrase={localNewPhrase} />
+        ) : (
+          <TextAreaForm onSubmit={onSubmit} localNewPhrase={localNewPhrase} />
+        )}
+      </div>
       <Link to="/home">
         <span className="create-page__back-arrow">&#8592;</span>
       </Link>

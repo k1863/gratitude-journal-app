@@ -1,5 +1,14 @@
 .create-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+  overflow: hidden;
+
+  @include respond(tab-port) {
+    display: block;
+  }
+
   &__phrase {
     font-size: 1.8rem;
     color: $color-grey-dark;
@@ -8,17 +17,26 @@
       line-height: 1.5;
     }
   }
-  &__img-box {
-    transform: translate(-3rem, -6rem);
+  .create-page__img-box {
+    margin-top: 5rem;
   }
   &__img {
-    height: 48rem;
+    height: 60rem;
+
+    @include respond(tab-land) {
+      height: 48rem;
+    }
   }
 
   &__btn {
     position: absolute;
-    bottom: 3rem;
-    right: 3rem;
+    bottom: 5rem;
+    right: 5rem;
+
+    @include respond(phone) {
+      bottom: 3rem;
+      right: 3rem;
+    }
   }
 
   &__back-arrow {
@@ -26,18 +44,24 @@
     font-size: 6rem;
     font-weight: 500;
     position: absolute;
-    bottom: 3rem;
-    left: 3rem;
+    bottom: 5rem;
+    left: 5rem;
     transition: 0.3s ease-in;
 
     &:hover {
       transform: scaleX(1.2);
     }
+
+    @include respond(tab-port) {
+      bottom: 3rem;
+      left: 3rem;
+    }
   }
 }
 .header-medium {
   @include header-medium;
-  margin-top: 1rem;
+  margin-top: 5rem;
+  color: $color-grey-dark !important;
   font-family: $font-family-secondary;
 }
 
@@ -54,9 +78,13 @@ textarea {
   line-height: 1.5;
   border-radius: 5px;
   width: 100%;
-  height: 15rem;
+  height: 20rem;
   border: none;
   outline: none;
   color: $color-grey-dark;
   background: $color-primary;
+
+  @include respond(phone) {
+    height: 15rem;
+  }
 }

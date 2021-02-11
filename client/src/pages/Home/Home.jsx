@@ -35,9 +35,6 @@ export default function Home() {
   console.log(allLocalPhrases);
   return (
     <div className="home-page">
-      <header>
-        <h2>Gratitude Journal</h2>
-      </header>
       <div className="search-section">
         <svg className="home-page__search-icon">
           <use href={sprite + "#search"}></use>
@@ -48,9 +45,7 @@ export default function Home() {
           id="searchInput"
           onChange={handleChange}
         />
-        <svg className="home-page__triple-dots">
-          <use href={sprite + "#dots-horizontal-triple"}></use>
-        </svg>
+
         {/*  <svg className="home-page__calendar">
           <use href={sprite + "#calendar-alt-fill"}></use>
         </svg> */}
@@ -70,26 +65,25 @@ export default function Home() {
           ) : (
             <span>
               <h2 className="header-medium">Today I am grateful for..</h2>
+
+              <p className="gratitude-text">
+                {newPost ? newPost.phrase : lastPost.phrase}
+              </p>
               <span className="home-page__date">
                 Last update
                 <Moment format="MMM Do YYYY">
                   {newPost ? newPost.createdAt : lastPost.createdAt}
                 </Moment>
               </span>
-
-              <p className="gratitude-text">
-                {newPost ? newPost.phrase : lastPost.phrase}
-              </p>
+              <Link to="/create">
+                {!allLocalPhrases ? (
+                  <button className="home-page__btn btn">&#43; Create</button>
+                ) : (
+                  <button className="home-page__btn btn"> Edit</button>
+                )}
+              </Link>
             </span>
           )}
-
-          <Link to="/create">
-            {!allLocalPhrases ? (
-              <button className="home-page__btn btn">&#43; Create</button>
-            ) : (
-              <button className="home-page__btn btn"> Edit</button>
-            )}
-          </Link>
         </div>
       )}
     </div>

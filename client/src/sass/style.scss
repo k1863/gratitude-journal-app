@@ -2,7 +2,6 @@
 @import "mixins";
 @import "base";
 @import "components";
-
 @import "typography.scss";
 
 @import "../pages/CreatePage/CreatePageStyles.scss";
@@ -10,3 +9,4 @@
 @import "../pages/SplashPage/SplashPageStyles.scss";
 @import "../components/textArea/TextAreaFormStyles.scss";
 @import "../components/PhrasesList/PhrasesListStyles.scss";
+@import "../App.css";

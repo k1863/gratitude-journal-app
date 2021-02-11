@@ -29,6 +29,9 @@ function App() {
 
   return (
     <div>
+      <header>
+        <h2>Gratitude Journal</h2>
+      </header>
       <Switch>
         <Route exact path="/" component={SplashPage} />
         <Route

@@ -5,7 +5,7 @@
     } //600px
   }
   @if $breakpoint == tab-mini {
-    @media only screen and (max-width: 48em) {
+    @media only screen and (min-width: 48em) {
       @content;
     } //768px
   }
@@ -42,8 +42,16 @@
   }
 }
 
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 @mixin header-primary {
-  font-size: 4.8rem;
+  font-size: 3.2rem;
   letter-spacing: 2px;
   line-height: 1;
   color: $color-secondary;
@@ -52,7 +60,7 @@
 }
 
 @mixin header-secondary {
-  font-size: 4.8rem;
+  font-size: 3.2rem;
   color: $color-secondary;
   font-weight: 700;
   line-height: 1.2;
@@ -62,7 +70,7 @@
 
 @mixin header-medium {
   font-size: 3.2rem;
-  color: $color-grey-dark;
+  color: $color-secondary;
   letter-spacing: 0.5px;
   font-weight: 700;
   line-height: 1.5;
