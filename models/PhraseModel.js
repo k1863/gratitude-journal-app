@@ -19,15 +19,4 @@ const PhraseSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-/* 
-const PhraseSchema = mongoose.Schema(
-  {
-    currentUser: {
-      id: { type: String, required: true },
-      phrase: { type: String, required: true },
-    },
-  },
-  { timestamps: true }
-); */
-
 module.exports = mongoose.model("Phrase", PhraseSchema);

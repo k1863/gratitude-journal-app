@@ -8,7 +8,6 @@ import "../../sass/style.scss";
 export default function TextAreaForm({ onSubmit, localNewPhrase }) {
   let history = useHistory();
 
-  /*   const defaultText =localNewPhrase.slice(0).pop().phrase; */
   const { register, handleSubmit } = useForm({
     defaultValues: {
       phrase: localNewPhrase,
@@ -37,7 +36,7 @@ export default function TextAreaForm({ onSubmit, localNewPhrase }) {
         ></textarea>
       </div>
       <button type="submit" className="create-page__btn btn">
-        &#10003;Save
+        &#10003; Save
       </button>
     </form>
   );

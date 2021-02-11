@@ -1,8 +1,7 @@
 .home-page {
   margin: 5rem;
-
   @include respond(phone) {
-    margin: 2rem;
+    margin: 0;
   }
 
   header {
@@ -31,8 +30,9 @@
   &__main-section {
     position: relative;
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 10rem;
+    margin-top: 5rem;
 
     @include respond(tab-land) {
       display: block;
@@ -40,8 +40,8 @@
     }
   }
   & &__search-icon {
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
     position: absolute;
     left: calc(40% + 20px);
     fill: $color-secondary;
@@ -60,16 +60,12 @@
     }
   }
 
-  &__calendar {
-    fill: $color-secondary;
-    height: 4rem;
-    width: 4rem;
-    box-shadow: $drop-shadow-small;
-  }
-
   &__img {
     width: 40%;
     margin-right: 5rem;
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.3s
+      both;
+    animation: fade-in 1.2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.3s both;
 
     @include respond(tab-land) {
       margin-right: 0;
@@ -112,29 +108,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-#searchInput {
-  width: 60%;
-  background-color: $color-grey-light;
-  height: 4rem;
-  outline: none;
-  border: none;
-  border-radius: 2rem;
-  font-size: 2.4rem;
-  height: 6rem;
-  margin-left: auto;
-
-  @include respond(tab-land) {
-    width: 80%;
-    margin-left: 0;
-    font-size: 2rem;
-    margin-top: 4rem;
-  }
 
   @include respond(phone) {
-    height: 5rem;
-    font-size: 2rem;
+    display: block;
+    margin-top: 6rem;
+    margin-right: 0;
   }
 }
 

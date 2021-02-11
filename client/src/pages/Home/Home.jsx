@@ -20,35 +20,26 @@ export default function Home() {
   const allLocalPhrasesArr = JSON.parse(
     localStorage.getItem("allLocalPhrases")
   );
-  /*   console.log(allLocalPhrasesArr[0]); */
+
   let allLocalPhrases = allLocalPhrasesArr[0];
   const lastPost = allLocalPhrasesArr?.slice(0).pop();
 
   const newPost = JSON.parse(localStorage.getItem("localNewPhrase"));
 
-  /*   const localNewPhrase = JSON.parse(localStorage.getItem("localNewPhrase")); */
-
   const searchResults = allLocalPhrasesArr?.filter((item) =>
     item?.phrase?.toLowerCase().includes(searchInput.toLowerCase())
   );
 
-  console.log(allLocalPhrases);
   return (
     <div className="home-page">
       <div className="search-section">
-        <svg className="home-page__search-icon">
-          <use href={sprite + "#search"}></use>
-        </svg>
         <input
           type="text"
+          placeholder="Search.."
+          className="search__input"
           name="searchInput"
-          id="searchInput"
           onChange={handleChange}
         />
-
-        {/*  <svg className="home-page__calendar">
-          <use href={sprite + "#calendar-alt-fill"}></use>
-        </svg> */}
       </div>
       {searchInput ? (
         <PhraseList

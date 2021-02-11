@@ -57,7 +57,6 @@ router.put("/", async (req, res) => {
   console.log(start);
   console.log(end);
 
-  const { id } = req.params;
   const { phrase, created, updatedAt } = req.body;
 
   const updatedPost = { phrase, created: Date.now() };
@@ -70,42 +69,6 @@ router.put("/", async (req, res) => {
     }
   );
   res.json(updatedPost);
-  console.log(updatedPost);
-  /*  await Phrase.replaceOne(
-    {
-      created: { $gte: start, $lte: end },
-    },
-    { phrase: req.body.phrase },
-    {
-      upsert: true,
-    }
-  );
-
-  // Load the document to see the updated value
-  const doc = await Phrase.findOne();
-  doc.title; // "King in the North" */
-
-  /* Phrase.findOneAndUpdate(
-    {
-      created: { $gte: start, $lte: end },
-    },
-    { $set: { phrase: req.body.phrase } },
-    {
-      upsert: true,
-      new: true,
-    },
-    (err, report) => {
-      console.log(report);
-    }
-  ); 
-  */
-  /*  try {
-    const updatedPhrase = await Phrase.updateOne({ _id: req.params.phraseId });
-
-    res.json(updatedPhrase);
-  } catch (err) {
-    res.json({ message: err });
-  } */
 });
 
 router.patch("");

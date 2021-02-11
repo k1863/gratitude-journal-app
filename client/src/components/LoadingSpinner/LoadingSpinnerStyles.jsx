@@ -12,9 +12,9 @@ export const SpinnerContainer = styled.div`
   display: inline-block;
   width: 5rem;
   height: 5rem;
-  border: 3px solid rgba(195, 195, 195, 0.6);
+  border: 3px solid #00a08f;
   border-radius: 50%;
-  border-top-color: #636767;
+  border-top-color: #00a08f;
   animation: spin 1s ease-in-out infinite;
   -webkit-animation: spin 1s ease-in-out infinite;
   @keyframes spin {

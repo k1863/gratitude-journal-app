@@ -18,7 +18,6 @@ function CreatePage() {
 
     await fetch("/phrases", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data))
       .catch((err) => console.log(err));
   };
 
@@ -42,7 +41,7 @@ function CreatePage() {
         )}
       </div>
       <Link to="/home">
-        <span className="create-page__back-arrow">&#8592;</span>
+        <span className="create-page__back-arrow arrow left">&#8592;</span>
       </Link>
     </div>
   );

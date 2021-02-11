@@ -15,7 +15,6 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const resp = await axios.get("/phrases");
-      console.log(resp.data);
       setData(resp.data);
       setIsLoading(false);
       handleSaveDataToLocal(resp.data);
@@ -23,9 +22,6 @@ function App() {
 
     fetchData();
   }, []);
-
-  console.log(data);
-  console.log(isLoading);
 
   return (
     <div>
