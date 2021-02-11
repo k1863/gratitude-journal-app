@@ -12,7 +12,7 @@ Live App:
 1. Clone the repo
 
 ```sh
-git clone https://github.com/github_username/repo_name.git
+git clone https://github.com/k1863/gratitude-journal-app.git
 ```
 
 2. Install NPM packages
@@ -44,4 +44,4 @@ Click Let's start on splash page
 - [NodeJs](#NodeJs)
 - [Sass](#sass)
 
-What are grateful for?
+What are you grateful for today?
