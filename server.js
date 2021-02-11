@@ -35,6 +35,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/phrases", phraseRoute);
+
 if (
   process.env.NODE_ENV === "production" ||
   process.env.NODE_ENV === "staging"
@@ -44,8 +46,6 @@ if (
     res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
 }
-
-app.use("/phrases", phraseRoute);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}.`);
